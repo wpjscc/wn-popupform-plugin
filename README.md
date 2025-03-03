@@ -6,6 +6,9 @@ The PopupForm plugin for WinterCMS provides a convenient way to handle form subm
 
 https://github.com/wintercms/winter/compare/develop...wpjscc-labs:winter:develop
 
+```
+php artisan winter:util compile js
+```
 
 ## Installation
 
