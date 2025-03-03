@@ -2,6 +2,11 @@
 
 The PopupForm plugin for WinterCMS provides a convenient way to handle form submissions within popup modals. This plugin extends the functionality of the FormController behavior to support popup forms.
 
+## Requirements
+
+https://github.com/wintercms/winter/compare/develop...wpjscc-labs:winter:develop
+
+
 ## Installation
 
 To install this plugin, add it to your WinterCMS project using Composer:
@@ -57,8 +62,6 @@ class Posts extends Controller
 ```yaml
 recordOnClick: "$.popup({ url: '/backend/winter/blog/posts/update/:id' ,handler: 'onUpdateForm'})"
 ```
-
-
 
 ## License
 
