@@ -19,7 +19,10 @@ trait PopupFormTrait
 
         $r = $this->asExtension('FormController')->create_onSave($context);
         if (post('create_form') !== null) {
-            $r = $this->_refurnResponse();
+            $_r = $this->_refurnResponse();
+            if ($_r) {
+                $r = $_r;
+            }
         }
 
         return $r;
@@ -30,7 +33,10 @@ trait PopupFormTrait
         $r = $this->asExtension('FormController')->update_onSave($recordId, $context);
 
         if (post('update_form') !== null) {
-            $r = $this->_refurnResponse();
+            $_r = $this->_refurnResponse();
+            if ($_r) {
+                $r = $_r;
+            }
         }
 
         return $r;
@@ -39,19 +45,25 @@ trait PopupFormTrait
     protected function _refurnResponse()
     {
         $r = [];
+
+        if (!(post('refresh_list') || post('refresh_relation'))) {
+            return $r;
+        }
+
+        $controller = $this->_runControllerMethod();
+
         if (post('refresh_list')) {
             $lists = explode(',', post('refresh_list'));
             foreach ($lists as $list) {
-                $r = array_merge($r, $this->listRefresh($list));
+                $r = array_merge($r, $controller->listRefresh($list));
             }
         } else {
             if (!post('refresh_relation')) {
-                $r = array_merge($r, $this->listRefresh());
+                $r = array_merge($r, $controller->listRefresh());
             }
         }
 
         if (post('refresh_relation')) {
-            $controller = $this->_runControllerMethod();
             $relations = explode(',', post('refresh_relation'));
             foreach ($relations as $relation) {
                 $r = array_merge($r, $controller->relationRefresh($relation));
