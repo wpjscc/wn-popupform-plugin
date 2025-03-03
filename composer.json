@@ -1,0 +1,15 @@
+{
+    "name": "wpjscc/wn-popupform-plugin",
+    "license": "MIT",
+    "type": "winter-plugin",
+    "authors": [
+        {
+            "name": "wpjscc",
+            "email": "wpjscc@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "installer-name": "popupform"
+    }
+}

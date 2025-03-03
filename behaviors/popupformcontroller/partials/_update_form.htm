@@ -1,0 +1,63 @@
+<?= Form::open(['id' => 'updateForm']) ?>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">Update <?= $mode ?? '' ?></h4>
+    </div>
+
+    <?php if (!$this->getFatalError()): ?>
+        <input type="hidden" name="refresh_relation_data" value='<?= json_encode(post('refresh_relation_data') ?? new \stdClass) ?>' />
+        <div class="modal-body">
+            <?= $this->formRender() ?>
+        </div>
+        <div class="modal-footer">
+            <button
+                type="submit"
+                data-request="onSave"
+                data-request-data="redirect:0, close:0, update_form: 1, mode:'<?= post('mode') ?? '' ?>',refresh_list:'<?= post('refresh_list') ?? '' ?>', refresh_relation:'<?= post('refresh_relation') ?? '' ?>',refresh_url:'<?= post('refresh_url') ?? '' ?>'"
+                data-hotkey="ctrl+s, cmd+s"
+                data-popup-load-indicator
+                class="btn btn-primary">
+                <u>S</u>ave
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="popup">
+                <?= e(trans('backend::lang.form.cancel')) ?>
+            </button>
+
+            <button
+                type="button"
+                class="oc-icon-trash-o btn-icon danger pull-left"
+                data-request="onDelete"
+                data-popup-load-indicator
+                data-request-confirm="Do you really want to delete this?">
+            </button>
+        </div>
+
+    <?php else: ?>
+
+        <div class="modal-body">
+            <p class="flash-message static error"><?= e(trans($this->getFatalError())) ?></p>
+        </div>
+        <div class="modal-footer">
+            <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="popup">
+                <?= e(trans('backend::lang.form.close')) ?>
+            </button>
+        </div>
+
+    <?php endif ?>
+
+    <script>
+        setTimeout(
+            function(){ $('#updateForm input.form-control:first').focus() },
+            310
+        )
+    </script>
+
+<?= Form::close() ?>
