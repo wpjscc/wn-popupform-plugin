@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpjscc\Popupform\Traits;
+namespace Wpjscc\PopupForm\Traits;
 
 use Winter\Storm\Router\Helper as RouterHelper;
 use System\Classes\PluginManager;
