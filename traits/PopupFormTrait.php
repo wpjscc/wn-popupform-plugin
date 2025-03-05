@@ -46,9 +46,9 @@ trait PopupFormTrait
     {
         $r = [];
 
-        if (!(post('refresh_list') || post('refresh_relation'))) {
-            return $r;
-        }
+        //if (!(post('refresh_list') || post('refresh_relation'))) {
+        //    return $r;
+        //}
 
         $controller = $this->_runControllerMethod();
 
