@@ -7,6 +7,7 @@
 
     <?php if (!$this->getFatalError()): ?>
         <input type="hidden" name="refresh_relation_data" value='<?= json_encode(post('refresh_relation_data') ?? new \stdClass) ?>' />
+        <input type="hidden" name="custom_fields" value="<?= post('custom_fields') ?>" />
         <div class="modal-body">
             <?= $this->formRender() ?>
         </div>
