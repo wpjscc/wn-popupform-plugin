@@ -1,5 +1,4 @@
 <?= Form::open(['id' => 'updateForm']) ?>
-
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="popup">&times;</button>
         <h4 class="modal-title">Update <?= $mode ?? '' ?></h4>
@@ -33,6 +32,7 @@
                 type="button"
                 class="oc-icon-trash-o btn-icon danger pull-left"
                 data-request="onDelete"
+                data-request-data="redirect:0, close:0, update_form: 1, mode:'<?= post('mode') ?? '' ?>',refresh_list:'<?= post('refresh_list') ?? '' ?>', refresh_relation:'<?= post('refresh_relation') ?? '' ?>',refresh_url:'<?= post('refresh_url') ?? '' ?>'"
                 data-popup-load-indicator
                 data-request-confirm="Do you really want to delete this?">
             </button>
