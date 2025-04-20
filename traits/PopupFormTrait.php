@@ -42,6 +42,31 @@ trait PopupFormTrait
         return $r;
     }
 
+    public function update_onDelete($recordId = null) {
+
+        // 获取this的命名空间
+        $namespace = get_class($this);
+        $parts = explode('\\', $namespace);
+        //转换成小写
+        $parts = array_map('strtolower', $parts);
+        // 移除掉 controllers
+        $parts = array_diff($parts, ['controllers']);
+        $deletePermission = implode('.', $parts) . '_delete';
+        if (!$this->user->hasAccess($deletePermission)) {
+            throw new ApplicationException(sprintf('您没有删除权限 %s.', $deletePermission));
+        }
+
+        $r = $this->asExtension('FormController')->update_onDelete($recordId);
+        if (post('update_form') !== null) {
+            $_r = $this->_refurnResponse();
+            if ($_r) {
+                $r = $_r;
+            }
+        }
+
+        return $r;
+    }
+
     public function formExtendFields($formWidget, $fields)
     {
         $fieldKeys = array_keys($fields);
