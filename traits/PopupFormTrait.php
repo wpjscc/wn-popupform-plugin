@@ -42,6 +42,22 @@ trait PopupFormTrait
         return $r;
     }
 
+    public function formExtendFields($formWidget, $fields)
+    {
+        $fieldKeys = array_keys($fields);
+        $customFields = post('custom_fields', []);
+        if (is_string($customFields) && strlen($customFields) > 0) {
+            $customFields = explode(',', $customFields);
+        }
+        if ($customFields) {
+            foreach ($fieldKeys as $fieldKey) {
+                if (!in_array($fieldKey, $customFields)) {
+                    $formWidget->removeField($fieldKey);
+                }
+            }
+        }
+    }
+
     protected function _refurnResponse()
     {
         $r = [];
