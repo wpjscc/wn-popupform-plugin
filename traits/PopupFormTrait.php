@@ -110,7 +110,7 @@ trait PopupFormTrait
                 $requiredPermissionsProperty->setAccessible(true);
                 $requiredPermissions = $requiredPermissionsProperty->getValue($controller);
 
-                if ($requiredPermissions && !$this->user->hasPermission($requiredPermissions)) {
+                if ($requiredPermissions && !$this->user->hasAccess($requiredPermissions)) {
                     throw new ApplicationException(sprintf('Backend user does not have the required permissions to access %s.', $path));
                 }
                 $controller->{$action}(...$params);
