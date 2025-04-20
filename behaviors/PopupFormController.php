@@ -22,13 +22,13 @@ class PopupFormController extends ControllerBehavior
         }
     }
 
-    public function onCreateForm($context = null)
+    public function onCreateForm_($context = null)
     {
         $this->controller->create($context ?: post('context'));
         return $this->makePartial('create_form');
     }
 
-    public function onUpdateForm($recordId = null, $context = null)
+    public function onUpdateForm_($recordId = null, $context = null)
     {
         $this->controller->update($recordId, $context ?: post('context'));
         return $this->makePartial('update_form');
