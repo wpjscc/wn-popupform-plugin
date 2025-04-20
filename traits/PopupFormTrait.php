@@ -105,6 +105,10 @@ trait PopupFormTrait
         if ($refreshRelationData && !is_array($refreshRelationData)) {
             $refreshRelationData = json_decode($refreshRelationData, true);
         }
+
+        // 移除掉请求中的custom_fields字段，避免对其影响
+        request()->request->remove('custom_fields');
+        
         // 如果有 refresh_relation_data, 则将其合并到 request 中, 便于 controller 有自己的请求上下文
         if ($refreshRelationData) {
             request()->merge($refreshRelationData);
