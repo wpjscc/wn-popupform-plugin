@@ -6,7 +6,7 @@
 
     <?php if (!$this->getFatalError()): ?>
         <input type="hidden" name="refresh_relation_data" value='<?= json_encode(post('refresh_relation_data') ?? new \stdClass) ?>' />
-        <input type="hidden" name="custom_fields" value="<?= post('custom_fields') ?>" />
+        <input type="hidden" name="custom_fields" value="<?= is_array(post('custom_fields')) ? implode(',', post('custom_fields')) : post('custom_fields') ?>" />
         <div class="modal-body">
             <?= $this->formRender() ?>
         </div>
@@ -27,7 +27,7 @@
                 data-dismiss="popup">
                 <?= e(trans('backend::lang.form.cancel')) ?>
             </button>
-
+            <?php if($this->user->isSuperUser()):?>
             <button
                 type="button"
                 class="oc-icon-trash-o btn-icon danger pull-left"
@@ -36,6 +36,7 @@
                 data-popup-load-indicator
                 data-request-confirm="Do you really want to delete this?">
             </button>
+            <?php endif?>
         </div>
 
     <?php else: ?>
