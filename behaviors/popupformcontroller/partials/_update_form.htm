@@ -1,7 +1,7 @@
 <?= Form::open(['id' => 'updateForm']) ?>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="popup">&times;</button>
-        <h4 class="modal-title">Update <?= $mode ?? '' ?></h4>
+        <h4 class="modal-title"><?= e(trans('backend::lang.form.save')) ?> <?= $mode ?? '' ?></h4>
     </div>
 
     <?php if (!$this->getFatalError()): ?>
@@ -18,7 +18,7 @@
                 data-hotkey="ctrl+s, cmd+s"
                 data-popup-load-indicator
                 class="btn btn-primary">
-                <u>S</u>ave
+                <?= e(trans('backend::lang.form.save')) ?>
             </button>
 
             <button
