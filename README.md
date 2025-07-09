@@ -51,19 +51,23 @@ class Posts extends Controller
 ```
 
 ```html
-<button
-    onclick="$.popup({ url: '/backend/winter/blog/posts/create' ,handler: 'onCreateForm', size: 'giant' })"
-    class="btn btn-primary oc-icon-plus">
-        Create
-</button>
+    <a  onclick="$.popup({ url: '<?=Backend::url('wpjscc/popupform/fieldupdate/create') ?>' ,handler: 'onCreateForm_',extraData: {refresh_relation:'genjins',update_form:1, mode:'user_genjin'}}) ">
+        <i class="wn-icon-plus"></i>
+    </a>
 ```
 
 - `onUpdateForm($recordId = null, $context = null)`: Renders the update form in a popup.
 ```
 
+```html
+    <a  onclick="$.popup({ url: '<?=Backend::url('wpjscc/popupform/fieldupdate/update/'.$record->id) ?>' ,handler: 'onUpdateForm_',extraData: {refresh_relation:'xxxx',update_form:1, mode:'xxx'}}) ">
+        <i class="wn-icon-edit"></i>
+    </a>
+```
+
 `config_list.yaml`
 ```yaml
-recordOnClick: "$.popup({ url: '/backend/winter/blog/posts/update/:id' ,handler: 'onUpdateForm'})"
+recordOnClick: "$.popup({ url: '/backend/winter/blog/posts/update/:id' ,handler: 'onUpdateForm_',extraData: {refresh_relation:'xxxx',update_form:1, mode:'xxx'}}) "
 ```
 
 ## License
