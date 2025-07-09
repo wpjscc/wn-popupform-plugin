@@ -11,7 +11,7 @@ use Yaml;
 class FieldUpdate extends Controller
 {
     use \Wpjscc\PopupForm\Traits\PopupFormTrait;
-    use \Shadow\User\Traits\TraitController;
+    // use \Shadow\User\Traits\TraitController;
 
     /**
      * @var array Behaviors that are implemented by this controller.
