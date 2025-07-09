@@ -1,0 +1,29 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+# tabs:
+#     fields:
+#         config_form:
+#             label: 'config_form'
+#             type: codeeditor
+#             size: huge
+#             language: yaml
+#             tab: config_form
+#         config_relation:
+#             label: 'config_relation'
+#             type: codeeditor
+#             size: huge
+#             language: yaml
+#             tab: config_relation
+#         fields:
+#             label: 'fields'
+#             type: codeeditor
+#             size: huge
+#             language: yaml
+#             tab: fields
+
+# fields:
+#     id:
+#         label: 'wpjscc.popupform::lang.models.general.id'
+#         disabled: true

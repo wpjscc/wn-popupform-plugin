@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'wpjscc.popupform::lang.models.fieldconfig.label'
+
+# Model Form Field configuration
+form: $/wpjscc/popupform/models/fieldconfig/fields.yaml
+
+# Model Class name
+modelClass: Wpjscc\PopupForm\Models\FieldConfig
+
+# Default redirect location
+defaultRedirect: wpjscc/popupform/fieldupdate
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: wpjscc/popupform/fieldupdate/update/:id
+    redirectClose: wpjscc/popupform/fieldupdate
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: wpjscc/popupform/fieldupdate
+    redirectClose: wpjscc/popupform/fieldupdate
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

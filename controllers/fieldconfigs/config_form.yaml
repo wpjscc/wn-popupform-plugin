@@ -1,0 +1,60 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'wpjscc.popupform::lang.models.fieldconfig.label'
+
+# Model Form Field configuration
+form:
+    fields:
+        mode:
+            label: 'mode'
+            span: left
+        description:
+            label: 'description'
+            span: right
+            type: textarea
+            size: tiny
+    tabs:
+        fields:
+            config_form:
+                label: 'config_form'
+                type: codeeditor
+                size: huge
+                language: yaml
+                tab: config_form
+            config_relation:
+                label: 'config_relation'
+                type: codeeditor
+                size: huge
+                language: yaml
+                tab: config_relation
+            config_list:
+                label: 'config_list'
+                type: codeeditor
+                size: huge
+                language: yaml
+                tab: config_list
+
+# Model Class name
+modelClass: Wpjscc\PopupForm\Models\FieldConfig
+
+# Default redirect location
+defaultRedirect: wpjscc/popupform/fieldconfigs
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: wpjscc/popupform/fieldconfigs/update/:id
+    redirectClose: wpjscc/popupform/fieldconfigs
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: wpjscc/popupform/fieldconfigs
+    redirectClose: wpjscc/popupform/fieldconfigs
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
