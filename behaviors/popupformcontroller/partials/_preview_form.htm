@@ -1,0 +1,39 @@
+<?= Form::open(['id' => 'previewForm']) ?>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title">预览</h4>
+    </div>
+
+    <?php if (!$this->getFatalError()): ?>
+        <input type="hidden" name="refresh_relation_data" value='<?= json_encode(post('refresh_relation_data') ?? new \stdClass) ?>' />
+        <input type="hidden" name="custom_fields" value="<?= is_array(post('custom_fields')) ? implode(',', post('custom_fields')) : post('custom_fields') ?>" />
+        <input type="hidden" name="mode" value="<?= $mode ?? '' ?>" />
+        <div class="modal-body">
+            <?= $this->formRenderPreview() ?>
+        </div>
+        <div class="modal-footer">
+            <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="popup">
+                <?= e(trans('backend::lang.form.cancel')) ?>
+            </button>
+        </div>
+
+    <?php else: ?>
+
+        <div class="modal-body">
+            <p class="flash-message static error"><?= e(trans($this->getFatalError())) ?></p>
+        </div>
+        <div class="modal-footer">
+            <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="popup">
+                <?= e(trans('backend::lang.form.close')) ?>
+            </button>
+        </div>
+
+    <?php endif ?>
+
+<?= Form::close() ?>

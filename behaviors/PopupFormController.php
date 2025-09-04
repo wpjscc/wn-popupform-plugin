@@ -33,4 +33,10 @@ class PopupFormController extends ControllerBehavior
         $this->controller->update($recordId, $context ?: post('context'));
         return $this->makePartial('update_form');
     }
+
+    public function onPreviewForm_($recordId = null, $context = null)
+    {
+        $this->controller->preview($recordId, $context ?: post('context'));
+        return $this->makePartial('preview_form');
+    }
 }
